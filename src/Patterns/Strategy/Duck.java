@@ -2,7 +2,7 @@ package Patterns.Strategy;
 
 public abstract class Duck {
     FlyBehavior flyBehavior;
-    QuakBehavior quakBehavior;
+    QuackBehavior quackBehavior;
 
     public abstract void display();
 
@@ -11,7 +11,7 @@ public abstract class Duck {
     }
 
     public void performQuack() {
-        quakBehavior.quak();
+        quackBehavior.quack();
     }
 
     public void swim() {
@@ -22,7 +22,7 @@ public abstract class Duck {
         this.flyBehavior = flyBehavior;
     }
 
-    public void setQuakBehavior(QuakBehavior quakBehavior) {
-        this.quakBehavior = quakBehavior;
+    public void setQuackBehavior(QuackBehavior quackBehavior) {
+        this.quackBehavior = quackBehavior;
     }
 }

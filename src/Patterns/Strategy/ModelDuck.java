@@ -3,7 +3,7 @@ package Patterns.Strategy;
 public class ModelDuck extends Duck {
     public ModelDuck() {
         flyBehavior = new FlyNoWay();
-        quakBehavior = new Quack();
+        quackBehavior = new Quack();
     }
 
     @Override

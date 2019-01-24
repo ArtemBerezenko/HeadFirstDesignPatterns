@@ -1,8 +1,8 @@
 package Patterns.Strategy;
 
-public class MuteQuack implements QuakBehavior {
+public class MuteQuack implements QuackBehavior {
     @Override
-    public void quak() {
+    public void quack() {
         System.out.println("<< Silence >>");
     }
 }

@@ -1,8 +1,8 @@
 package Patterns.Strategy;
 
-public class Quack implements QuakBehavior {
+public class Quack implements QuackBehavior {
     @Override
-    public void quak() {
+    public void quack() {
         System.out.println("Quack");
     }
 }

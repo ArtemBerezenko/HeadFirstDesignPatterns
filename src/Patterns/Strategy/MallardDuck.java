@@ -3,7 +3,7 @@ package Patterns.Strategy;
 public class MallardDuck extends Duck {
 
     public MallardDuck() {
-        quakBehavior = new Quack();
+        quackBehavior = new Quack();
         flyBehavior = new FlyWithWings();
     }
 

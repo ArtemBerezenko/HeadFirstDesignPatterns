@@ -1,8 +1,8 @@
 package Patterns.Strategy;
 
-public class Squeack implements QuakBehavior {
+public class Squeack implements QuackBehavior {
     @Override
-    public void quak() {
+    public void quack() {
         System.out.println("Squeack");
     }
 }

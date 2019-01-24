@@ -6,6 +6,7 @@ package Patterns.Observer.Observer;
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
     private float temperature;
     private float humidity;
+    private float heatindex;
     private Subject weatherData;
 
     public CurrentConditionsDisplay(Subject weatherData) {
@@ -14,15 +15,16 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(float temperature, float humidity, float pressure) {
+    public void update(float temperature, float humidity, float pressure, float heatindex) {
         this.temperature = temperature;
         this.humidity = humidity;
+        this.heatindex = heatindex;
         display();
     }
 
     @Override
     public void display() {
         System.out.println("Current conditions: " + temperature
-                + "F degrees and " + humidity + "% humidity");
+                + "F degrees and " + humidity + "% humidity and " + heatindex + " heatindex ");
     }
 }
