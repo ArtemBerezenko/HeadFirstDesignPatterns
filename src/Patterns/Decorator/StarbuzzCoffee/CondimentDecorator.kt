@@ -1,3 +1,3 @@
-package Patterns.Decorator
+package Patterns.Decorator.StarbuzzCoffee
 
 abstract class CondimentDecorator : Beverage()

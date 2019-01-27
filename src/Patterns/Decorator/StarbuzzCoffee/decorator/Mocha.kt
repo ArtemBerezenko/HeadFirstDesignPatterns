@@ -1,7 +1,7 @@
-package Patterns.Decorator.decorator
+package Patterns.Decorator.StarbuzzCoffee.decorator
 
-import Patterns.Decorator.Beverage
-import Patterns.Decorator.CondimentDecorator
+import Patterns.Decorator.StarbuzzCoffee.Beverage
+import Patterns.Decorator.StarbuzzCoffee.CondimentDecorator
 
 class Mocha(private var beverage: Beverage) : CondimentDecorator() {
     override val description = beverage.description + ", Mocha"
