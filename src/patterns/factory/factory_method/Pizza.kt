@@ -1,4 +1,4 @@
-package patterns.factory
+package patterns.factory.factory_method
 
 abstract class Pizza {
     open lateinit var name: String

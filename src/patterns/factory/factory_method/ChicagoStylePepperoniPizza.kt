@@ -1,4 +1,4 @@
-package patterns.factory
+package patterns.factory.factory_method
 
 class ChicagoStylePepperoniPizza(
         override var name: String = "Chicago Style Pepperoni Pizza",

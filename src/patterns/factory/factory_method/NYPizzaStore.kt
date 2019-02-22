@@ -1,4 +1,4 @@
-package patterns.factory
+package patterns.factory.factory_method
 
 class NYPizzaStore : PizzaStore() {
     override fun createPizza(type: String): Pizza? =

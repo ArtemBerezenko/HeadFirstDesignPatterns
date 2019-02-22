@@ -1,4 +1,4 @@
-package patterns.factory
+package patterns.factory.factory_method
 
 fun main() {
     val nyStore = NYPizzaStore()
