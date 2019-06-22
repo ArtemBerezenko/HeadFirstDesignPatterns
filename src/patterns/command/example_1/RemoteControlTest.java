@@ -8,12 +8,16 @@ public class RemoteControlTest {
         SimpleRemoteControl remote = new SimpleRemoteControl();
         Light light = new Light();
         GarageDoor garageDoor = new GarageDoor();
+        CoffeeMachine coffeeMachine = new CoffeeMachine();
         LightOnCommand lightOn = new LightOnCommand(light);
         GarageDoorOpenCommand garageOpen = new GarageDoorOpenCommand(garageDoor);
+        CoffeeMachineCommand esspresso = new CoffeeMachineCommand(coffeeMachine);
 
         remote.setCommand(lightOn);
         remote.buttonWasPressed();
         remote.setCommand(garageOpen);
+        remote.buttonWasPressed();
+        remote.setCommand(esspresso);
         remote.buttonWasPressed();
     }
 }
