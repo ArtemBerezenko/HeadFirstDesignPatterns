@@ -1,7 +1,5 @@
 package patterns.iterator
 
-import kotlin.collections.Iterator
-
 class Waitress(private val pancakeHouseMenu: Menu, private val dinerMenu: Menu) {
 
     fun printMenu() {
