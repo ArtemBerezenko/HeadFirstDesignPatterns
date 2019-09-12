@@ -28,9 +28,11 @@ class ImageProxyTestDrive {
         cds.keys.forEach {  name ->
             val menuItem = JMenuItem(name)
             menu.add(menuItem)
-            menuItem.addActionListener(ActionListener { event: ActionEvent? ->
-                imageComponent?.icon = ImageProxy(getCDUrl(event?.actionCommand!!))
-            })
+            menuItem.addActionListener { event: ActionEvent ->
+                imageComponent?.icon = ImageProxy(getCDUrl(event.actionCommand))
+                frame.repaint()
+            }
+
         }
 
         val icon = ImageProxy(initialURL)
@@ -53,5 +55,5 @@ class ImageProxyTestDrive {
 }
 
 fun main() {
-    val testDrive = ImageProxyTestDrive()
+    ImageProxyTestDrive()
 }

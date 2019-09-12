@@ -23,14 +23,14 @@ class ImageProxy(private val imageUrl: URL?): Icon {
             g?.drawString("Loading CD cover, please wait...", x + 300, y + 190)
             if (!retrieving) {
                 retrieving = true
-                retrievalThread = Thread(Runnable {
+                retrievalThread = Thread {
                     try {
                         imageIcon = ImageIcon(imageUrl, "CD Cover")
                         c?.repaint()
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
-                })
+                }
                 retrievalThread.start()
             }
         }
