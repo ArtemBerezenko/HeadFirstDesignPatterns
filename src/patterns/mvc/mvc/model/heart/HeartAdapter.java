@@ -1,12 +1,13 @@
-package patterns.mvc.mvc.model;
+package patterns.mvc.mvc.model.heart;
 
-import patterns.mvc.mvc.BPMObserver;
-import patterns.mvc.mvc.BeatObserver;
+import patterns.mvc.mvc.observer.BPMObserver;
+import patterns.mvc.mvc.observer.BeatObserver;
+import patterns.mvc.mvc.model.beat.BeatModelInterface;
 
 /**
  * Created by Home on 11.12.2016.
  */
-public class HeartAdapter implements BeatModelInterface{
+public class HeartAdapter implements BeatModelInterface {
     HeartModelInterface heart;
 
     public HeartAdapter(HeartModelInterface heart) {

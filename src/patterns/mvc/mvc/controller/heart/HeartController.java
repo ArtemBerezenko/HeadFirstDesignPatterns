@@ -1,15 +1,16 @@
-package patterns.mvc.mvc.controller;
+package patterns.mvc.mvc.controller.heart;
 
-import patterns.mvc.mvc.model.HeartAdapter;
-import patterns.mvc.mvc.model.HeartModelInterface;
+import patterns.mvc.mvc.controller.ControllerInterfacre;
+import patterns.mvc.mvc.model.heart.HeartAdapter;
+import patterns.mvc.mvc.model.heart.HeartModelInterface;
 import patterns.mvc.mvc.view.DJView;
 
 /**
  * Created by Home on 11.12.2016.
  */
-public class HeartController implements ControllerInterfacre{
-    HeartModelInterface model;
-    DJView view;
+public class HeartController implements ControllerInterfacre {
+    private HeartModelInterface model;
+    private DJView view;
 
     public HeartController(HeartModelInterface model) {
         this.model = model;

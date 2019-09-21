@@ -1,7 +1,7 @@
-package patterns.mvc.mvc.model;
+package patterns.mvc.mvc.model.beat;
 
-import patterns.mvc.mvc.BPMObserver;
-import patterns.mvc.mvc.BeatObserver;
+import patterns.mvc.mvc.observer.BPMObserver;
+import patterns.mvc.mvc.observer.BeatObserver;
 
 import javax.sound.midi.*;
 import java.util.*;
@@ -10,12 +10,12 @@ import java.util.*;
  * Created by Home on 11.12.2016.
  */
 public class BeatModel implements BeatModelInterface, MetaEventListener {
-    Sequencer sequencer;
-    ArrayList beatObservers = new ArrayList();
-    ArrayList bpmObservers = new ArrayList();
-    int bpm = 90;
-    Sequence sequence;
-    Track track;
+    private Sequencer sequencer;
+    private ArrayList beatObservers = new ArrayList();
+    private ArrayList bpmObservers = new ArrayList();
+    private int bpm = 90;
+    private Sequence sequence;
+    private Track track;
 
     @Override
     public void initialize() {
@@ -47,7 +47,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
         return bpm;
     }
 
-    void beatEvent(){
+    private void beatEvent() {
         notifyBeatObservers();
     }
 
@@ -56,9 +56,9 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
         beatObservers.add(o);
     }
 
-    public void notifyBeatObservers(){
-        for(int i = 0; i < beatObservers.size(); i++){
-            BeatObserver observer = (BeatObserver)beatObservers.get(i);
+    private void notifyBeatObservers() {
+        for (int i = 0; i < beatObservers.size(); i++) {
+            BeatObserver observer = (BeatObserver) beatObservers.get(i);
             observer.updateBeat();
         }
     }
@@ -66,7 +66,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
     @Override
     public void removeObserver(BeatObserver o) {
         int i = beatObservers.indexOf(o);
-        if(i >= 0){
+        if (i >= 0) {
             beatObservers.remove(i);
         }
     }
@@ -76,8 +76,8 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
         bpmObservers.add(o);
     }
 
-    public void notifyBPMObservers(){
-        for(int i = 0; i < bpmObservers.size(); i++){
+    private void notifyBPMObservers() {
+        for (int i = 0; i < bpmObservers.size(); i++) {
             BPMObserver observer = (BPMObserver) bpmObservers.get(i);
             observer.updateBPM();
         }
@@ -86,7 +86,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
     @Override
     public void removeObserver(BPMObserver o) {
         int i = bpmObservers.indexOf(o);
-        if(i >= 0){
+        if (i >= 0) {
             bpmObservers.remove(i);
         }
 
@@ -94,15 +94,15 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
 
     @Override
     public void meta(MetaMessage message) {
-        if(message.getType() == 47){
+        if (message.getType() == 47) {
             beatEvent();
             sequencer.start();
             setBPM(getBPM());
         }
     }
 
-    public void setUpMidi(){
-        try{
+    private void setUpMidi() {
+        try {
             sequencer = MidiSystem.getSequencer();
             sequencer.open();
             sequencer.addMetaEventListener(this);
@@ -115,7 +115,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
         }
     }
 
-    public void buildTrackAndStart(){
+    private void buildTrackAndStart() {
         int[] trackList = {35, 0, 46, 0};
 
         sequence.deleteTrack(null);
@@ -130,11 +130,11 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
         }
     }
 
-    public void makeTracks(int[] list){
-        for(int i = 0; i < list.length; i++){
+    private void makeTracks(int[] list) {
+        for (int i = 0; i < list.length; i++) {
             int key = list[i];
 
-            if(key != 0){
+            if (key != 0) {
                 track.add(makeEvent(144, 9, key, 100, i));
                 track.add(makeEvent(128, 9, key, 100, i++));
             }
@@ -142,9 +142,9 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
     }
 
 
-    public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick){
+    private MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
         MidiEvent event = null;
-        try{
+        try {
             ShortMessage a = new ShortMessage();
             a.setMessage(comd, chan, one, two);
             event = new MidiEvent(a, tick);

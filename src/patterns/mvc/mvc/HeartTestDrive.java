@@ -1,8 +1,8 @@
 package patterns.mvc.mvc;
 
 import patterns.mvc.mvc.controller.ControllerInterfacre;
-import patterns.mvc.mvc.controller.HeartController;
-import patterns.mvc.mvc.model.HeartModel;
+import patterns.mvc.mvc.controller.heart.HeartController;
+import patterns.mvc.mvc.model.heart.HeartModel;
 
 /**
  * Created by Home on 11.12.2016.
